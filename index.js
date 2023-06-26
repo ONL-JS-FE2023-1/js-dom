@@ -6,11 +6,7 @@ console.dir(document);
 
 function getAlert(event) {
     const btn = event.target;
-    if(btn.style.backgroundColor === 'red') {
-        btn.style.backgroundColor = 'unset';
-    } else {
-        btn.style.backgroundColor = 'red';
-    }
+    btn.style.display = 'none';
 }
 
 function consoleHello(event) {
