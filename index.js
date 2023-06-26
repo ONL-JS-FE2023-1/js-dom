@@ -28,13 +28,9 @@ form.addEventListener('submit', consoleForm);
 
 function consoleForm(event) {
     event.preventDefault();
-    console.log(event);
-    
     const form = event.target;
-    console.dir(form[0]);
-    
     const value = form[0].value;
-    console.log(value);
+    console.log(`Hello, ${value ? value : 'Anonym'}`);
 }
 
 // buttonElement.addEventListener('click', (event) => {  // <<<---- BAD PRACTICE
