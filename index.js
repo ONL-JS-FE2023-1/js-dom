@@ -1,21 +1,11 @@
-const collection = document.getElementsByClassName('paragraph');
+const btn = document.querySelector('button');
+const btn2 = document.querySelector('.super-btn');
+const btn3 = document.querySelector('#btnbtn');
 
-for(let p of collection) {
-    p.style.color = 'green';
-}
+const btnCollection = document.querySelectorAll('button');
 
-const btns = document.getElementsByTagName('button');
+const paragraphCollection = document.querySelectorAll('.paragraph:nth-child(even)');
 
-const arr = [...btns];
-
-function hello() {
-    console.log('Hello, user');
-}
-
-// btns[0]
-// btns[1]
-// btns[2]
-
-for (const btn of btns) {
-    btn.addEventListener('click', hello);
+for(const par of paragraphCollection) {
+    par.style.color = 'red';
 }
