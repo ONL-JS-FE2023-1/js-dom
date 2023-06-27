@@ -1,17 +1,23 @@
-const converterForm = document.querySelector('#temperatureConverterForm');
+/*
 
-converterForm.addEventListener('submit', convertHandler);
+1. Маємо div
+2. Маємо дві кнопки: на одній кнопці написано "Зробити червоним", на другій - "Зробити зеленим".
+3. Задача: За натисненням на кнопку фоновий колір оцього діва змінюється на відповідний колір, вказаний на кнопці
 
-function convertHandler(event) {
-    event.preventDefault(); // Зупиняємо стандартну поведінку форми (перезавантаження сторінки)
+*/
 
-    // Отримуємо значення введеної температури
-    const temperatureInput = Number(document.querySelector('#temperature').value);
+const div = document.querySelector('.box');
+const [red, green] = document.querySelectorAll('.btn');
 
-    // Обчислюємо температуру в градусах Фаренгейта
-    const fahrenheit = (temperatureInput * 9 / 5) + 32;
+console.log(div.classList);
 
+red.addEventListener('click', setRedColor);
+green.addEventListener('click', setGrenColor);
 
-    // Виводимо результат конвертації
-    document.querySelector('#result').innerHTML = `${temperatureInput} C = ${fahrenheit.toFixed(2)} F`;
+function setRedColor(event) {
+    div.classList.toggle('red-little');
+}
+
+function setGrenColor(event) {
+    div.classList.toggle('green-big')
 }
