@@ -9,3 +9,5 @@ const paragraphCollection = document.querySelectorAll('.paragraph:nth-child(even
 for(const par of paragraphCollection) {
     par.style.color = 'red';
 }
+
+paragraphCollection[0].innerHTML = 'test';
