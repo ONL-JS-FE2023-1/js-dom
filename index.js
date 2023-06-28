@@ -5,9 +5,7 @@ for(const btn of buttons) {
     btn.addEventListener('click', clickHandler);
 }
 
-function clickHandler({target}) {
-    const {dataset: {color}} = target;
-    const {parentNode} = target;
+function clickHandler({target: {dataset: {color}, parentNode}}) {
     parentNode.style.backgroundColor = color;
 }
 
