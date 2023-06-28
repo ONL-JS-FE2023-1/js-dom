@@ -1,20 +1,10 @@
-const div = document.querySelector('#root');
-const buttons = document.querySelectorAll('button');
+const btn = document.querySelector('button');
 
-for(const btn of buttons) {
-    btn.addEventListener('click', clickHandler);
+btn.addEventListener('click', createDiv);
+
+function createDiv() {
+    const div = document.createElement('div'); // 1. Створюємо елемент у пам'яті
+    div.classList.add('box');
+    div.append('Hello text');
+    document.body.append(div); // Приєднуємо елемент до батьківського елементу
 }
-
-function clickHandler({target: {dataset: {color}, parentNode}}) {
-    parentNode.style.backgroundColor = color;
-}
-
-/*
-
-1. Маємо div
-2. Маємо 5 кнопок, на кожній з яких написаний колір
-3. Задача:
-За натисненням на кнопку фоновий оцього діва (рут) змінюється на відповідний колір, 
-вказаний на кнопці
-
-*/
