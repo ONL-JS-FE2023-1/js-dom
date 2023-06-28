@@ -21,3 +21,13 @@ function setRedColor(event) {
 function setGrenColor(event) {
     div.classList.toggle('green-big')
 }
+
+const themeToggle = document.querySelector('#themeToggle');
+// const body = document.querySelector('body');
+const body = document.body;
+
+themeToggle.addEventListener('click', toggleTheme);
+
+function toggleTheme() {
+    body.classList.toggle('dark-theme');
+}

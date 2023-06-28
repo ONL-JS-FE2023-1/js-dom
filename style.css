@@ -15,3 +15,8 @@
     width: 100px;
     height: 100px;
 }
+
+.dark-theme {
+    background-color: black;
+    color: white;
+}
