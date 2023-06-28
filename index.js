@@ -33,19 +33,27 @@
 // }
 
 
-const event = new Event('click');
+const event2 = new Event('click');
 // console.log(event);
-console.log(event.composedPath());
+// console.log(event2.composedPath());
 
 const btn = document.querySelector('button');
 
-btn.addEventListener('click', eventHandler);
+// btn.addEventListener('click', eventHandler);
 
 function eventHandler(event) {
-    // console.log(event);
-    console.log(event.composedPath());
+    //console.log(event);
+    //console.log(event.composedPath());
+    //alert('Hello!')
+
+    console.dir(event.target); // елемент, на якому сталася подія
+    console.dir(event.currentTarget); // елемент, якому належав обробник
 }
 
+// const event = new MouseEvent('click');
+// btn.dispatchEvent(event);
+
+window.addEventListener('click', eventHandler);
 /*
 
 3 фази події
