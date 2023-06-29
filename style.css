@@ -1,5 +1,29 @@
-.picture {
+#root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-wrapper {
     width: 200px;
-    height: 200px;
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     object-fit: cover;
+}
+
+.username {
+    font-size: 2em;
+}
+
+.description {
+    font-size: 1.1em;
 }
