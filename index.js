@@ -1,22 +1,15 @@
-/*
+// 1. Створити новий елемент
+const div = document.createElement('div');
 
-Дан section на якій треба клацати мишею
-Дан div, який має переміститись на точку, в яку клацнули мишею
+// 2. Приєднати новий елемент до будь-якого існуючого на сторінці батьківського елементу
+const body = document.body;
+body.append(div);
+div.append('Hello DOM');
 
-*/
+// Задача: Створити картинку і вставити її в div
 
-const field = document.querySelector('#game-field');
-const box = document.querySelector('#box');
-
-field.addEventListener('click', moveBox, {capture: true})
-
-function moveBox(event) {
-    event.stopPropagation();
-    if(event.currentTarget === event.target) {
-        // 1. Отримати box через івент ігрового поля
-        const {target: {children: {box}}, clientX, clientY} = event;
-        // 2. Двигаємо наш box
-        box.style.top = `${clientY - (box.offsetHeight / 2)}px`;
-        box.style.left = `${clientX - (box.offsetWidth / 2)}px`;
-    }
-}
+const img = document.createElement('img');
+img.setAttribute('src', './images/golden-retriever-puppy.jpg');
+img.setAttribute('alt', 'Dog');
+img.classList.add('picture');
+div.append(img);
