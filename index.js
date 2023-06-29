@@ -1,18 +1,22 @@
 /*
 
-1. Маємо елемент img
-2. Маємо дві кнопки, які в атрибутах data-* містять посилання на певну картинку 
-(адреса картинки)
-3. Задача: За натиснення на кнопку img має показати ту картинку, 
-адреса якої зберігалась у кнопці
+Дан section на якій треба клацати мишею
+Дан div, який має переміститись на точку, в яку клацнули мишею
+
 */
 
-const [btn1, btn2] = document.querySelectorAll('button');
+const field = document.querySelector('#game-field');
+const box = document.querySelector('#box');
 
-btn1.addEventListener('click', clickHandler);
-btn2.addEventListener('click', clickHandler);
+field.addEventListener('click', moveBox, {capture: true})
 
-function clickHandler({target}) {
-    const img = target.parentNode.children[0];
-    img.setAttribute('src', target.dataset.src);
+function moveBox(event) {
+    event.stopPropagation();
+    if(event.currentTarget === event.target) {
+        // 1. Отримати box через івент ігрового поля
+        const {target: {children: {box}}, clientX, clientY} = event;
+        // 2. Двигаємо наш box
+        box.style.top = `${clientY - (box.offsetHeight / 2)}px`;
+        box.style.left = `${clientX - (box.offsetWidth / 2)}px`;
+    }
 }
