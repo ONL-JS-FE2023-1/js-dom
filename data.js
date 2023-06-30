@@ -3,7 +3,7 @@ const data = [
         id: 1,
         name: 'John',
         description: 'user 1',
-        profilePicture: 'https://img.uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/computer-user-icon.svg'
+        profilePicture: 'https://TESTplus.unsplash.com/premium_photo-1669842504837-ac6c1bad2bcf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80'
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const data = [
         id: 3,
         name: 'Jane',
         description: 'user 3',
-        profilePicture: 'https://img.uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/computer-user-icon.svg'
+        profilePicture: 'https://plus.unsplash.com/premium_photo-1669842504837-ac6c1bad2bcf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80'
     },
     {
         id: 4,
@@ -27,7 +27,7 @@ const data = [
         id: 5,
         name: 'Alex',
         description: 'user 5',
-        profilePicture: 'https://img.uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/computer-user-icon.svg'
+        profilePicture: 'https://plus.unsplash.com/premium_photo-1669842504837-ac6c1bad2bcf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80'
     },
     {
         id: 6,
@@ -39,7 +39,7 @@ const data = [
         id: 7,
         name: 'Tracy',
         description: 'user 7',
-        profilePicture: 'https://img.uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/computer-user-icon.svg'
+        profilePicture: 'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=766&q=80'
     },
     {
         id: 8,
