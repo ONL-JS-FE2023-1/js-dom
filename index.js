@@ -1,11 +1,11 @@
 // +1. Рефактор коду
-// 2. Створення placeholde'ra для картинки
-// 3. Поки наша картинка вантажиться, ми показуємо placeholder, коли картинка завантажиться
+// +2. Створення placeholde'ra для картинки
+// +3. Поки наша картинка вантажиться, ми показуємо placeholder, коли картинка завантажиться
 // -> змінюємо наш placeholder на завантажену картинку користувача
 
 const root = document.querySelector('#root');
 
-function imageLoadHandler({target}) {
+function imageLoadHandler({ target }) {
     console.log('image successfully loaded');
     const parentWrapper = document.getElementById(`wrapper${target.dataset.id}`);
     parentWrapper.append(target);
@@ -56,6 +56,7 @@ function createImageWrapper(user) {
     // 1 дія: створення обгортки для картинки. Обгортка - placeholder
     const imgWrapper = createElement('div', { classNames: ['image-wrapper'] });
     imgWrapper.setAttribute('id', `wrapper${user.id}`);
+    imgWrapper.style.backgroundColor = stringToColor(user.name);
     // 2 дія: створення картинки
     const img = createUserImage(user);
     return imgWrapper;
@@ -94,3 +95,20 @@ function createElement(tagName, { classNames }, ...children) {
 
     return elem;
 }
+
+function stringToColor(str) {
+    let hash = 0;
+    str.split('').forEach(char => {
+        hash = char.charCodeAt(0) + ((hash << 5) - hash)
+    })
+    let colour = '#'
+    for (let i = 0; i < 3; i++) {
+        const value = (hash >> (i * 8)) & 0xff
+        colour += value.toString(16).padStart(2, '0')
+    }
+    return colour
+}
+
+// Що можна покращити?
+// Ініціали користувача в середині обгортки, якщо картинки ще немає
+// Потрібно створити div, який буде вам показувати ініціали, якщо картинки немає
