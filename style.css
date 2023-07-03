@@ -6,4 +6,9 @@
 
 .item {
     font-family: 'Ysabeau Infant', sans-serif;
+    margin-bottom: 10px;
+}
+
+.deleteBtn {
+    margin-left: 15px;
 }

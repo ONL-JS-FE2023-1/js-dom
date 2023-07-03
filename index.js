@@ -4,7 +4,6 @@ const root = document.querySelector('#root');
 form.addEventListener('submit', addTask);
 
 function addTask(event) {
-    console.log(event);
     event.preventDefault();
 
     // +1. Отримати текст завдання, яке користувач ввів до інпуту
@@ -15,7 +14,21 @@ function addTask(event) {
     const li = createElement('li', {classNames: ['item']}, value);
     root.append(li);
 
+    // 3. Створити кнопку для видалення саме цієї лішки
+    const deleteBtn = createElement('button', {classNames: ['deleteBtn']}, 'X');
+    deleteBtn.addEventListener('click', deleteHandler);
+    li.append(deleteBtn);
+
     target.reset();
+}
+
+function deleteHandler({target: {parentNode}}) {
+    // 1. Отримати доступ до батьківської лішки
+    // console.log(event.target.parentNode);
+
+    // 2. Видалити батьківську лішку
+    // Примітка. Батьківська лішка видалиться разом з кнопкою видалення
+    parentNode.remove();
 }
 
 
