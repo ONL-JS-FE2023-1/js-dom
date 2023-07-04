@@ -1,5 +1,8 @@
 const timeoutID = setTimeout(func, 1000);
+clearTimeout(timeoutID);
 
+const intervalID = setInterval(function () {console.log('LOG 5')}, 2000);
+clearInterval(intervalID);
 
 function func() {
     console.log(2 + 2);
