@@ -1,17 +1,13 @@
-// const regexp = /^Test$/;
-///^[A-Za-z]{2,5}$/ // шукаємо слово з 2-5 (великих і маленьких)
+const timeoutID = setTimeout(func, 1000);
 
-// sunnyday@gmail.com
-//   1       2     3
 
-// /^[A-Za-z0-9\_\.]+\@[A-Za-z0-9]+\.[A-Za-z0-9]+$/
+function func() {
+    console.log(2 + 2);
+}
 
-const testSTring = 'sunnyday23@gmail.com';
+// func(); // 4
 
-// Літеральне створення регулярних виразів
-const reg1 = /^[A-Za-z0-9\_\.]+\@[A-Za-z0-9]+\.[A-Za-z0-9]+$/;
-console.log(reg1);
-
-// Створенння регулярних виразів за допомогою конструктора
-const reg2 = new RegExp('^[A-Za-z]{2,5}$');
-console.log(reg2);
+// let j = 1;
+// for(let i = 0; i < 1000000000; i++) {
+//     j *= 5;
+// }
