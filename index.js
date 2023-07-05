@@ -1,13 +1,6 @@
-// Копії бувають: глибокі та поверхневі
-
-const originalObject = {
-    users: [
-        {
-            name: 'John',
-            age: 45
-        }
-    ]
-}
-
-// const shallowCopy = { ...originalObject }
-const deepCopy = JSON.parse(JSON.stringify(originalObject));
+const p = fetch('./user.json')
+.then((response) => {
+    return response.json();
+}).then((data) => {
+    console.log(data);
+})
