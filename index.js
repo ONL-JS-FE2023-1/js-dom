@@ -8,7 +8,7 @@
 
 + 1. Зробити верстку елементів, які отримують від користувача дані про місто
 + 2. Отримати дані з апі і обробити їх (підготувати дані до запиту на сервер)
-3. Зробити картки з погодою та відобразити їх
++3. Зробити картки з погодою та відобразити їх
 
 */
 
@@ -36,14 +36,6 @@ function requestAPI(city) {
     })
 }
 
-function displayWeather(weatherData) {
-    // 1. Ми повинні витягнути з того великого об'єкта необхідні нам дані
-    // 2. Динамічно створюємо картку з погодою
-    // 3. Додаємо цю створену картку з погодою до секції з класом wrapper
-    console.log(weatherData)
-}
-
-
 /*
 
 <!-- <article class="weather">
@@ -55,3 +47,35 @@ function displayWeather(weatherData) {
     </article> -->
 
 */
+
+function displayWeather(weatherData) {
+    // 1. Ми повинні витягнути з того великого об'єкта необхідні нам дані
+    // 2. Динамічно створюємо картку з погодою
+    // 3. Додаємо цю створену картку з погодою до секції з класом wrapper
+
+    const {name, main: {temp, pressure}, weather: [{description}], wind: {speed}} = weatherData; // weather need attention!
+    
+    const article = document.createElement('article');
+    article.classList.add('weather');
+
+    const city = document.createElement('p');
+    city.append('City: ', name);
+
+    const temperature = document.createElement('p');
+    temperature.append('Temperature: ', temp);
+
+    const press = document.createElement('p');
+    press.append('Pressure: ', pressure);
+
+    const descr = document.createElement('p');
+    descr.append('Weather description: ', description);
+
+    const wind = document.createElement('p');
+    wind.append('Wind speed: ', speed);
+
+    article.append(city, temperature, press, descr, wind);
+
+
+    const section = document.querySelector('.wrapper');
+    section.append(article);
+}
