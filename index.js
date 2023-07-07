@@ -14,13 +14,19 @@
 
 const API_KEY = 'f7c576ba3699bdd0b98ddcf196639992';
 const API_BASE = 'https://api.openweathermap.org/data/2.5/weather';
+const CITIES = [];
 
 const btn = document.querySelector('.btn');
 btn.addEventListener('click', buttonClickHandler);
 
 function buttonClickHandler({target}) {
     const selectValue = target.previousElementSibling.value;
-    requestAPI(selectValue);
+
+    // запобігання створенню карток для міста, для якого ми вже зробили картку
+    if(CITIES.includes(selectValue) === false) {
+        CITIES.push(selectValue);
+        requestAPI(selectValue);
+    }
 }
 
 function requestAPI(city) {
