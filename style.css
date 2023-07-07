@@ -1,26 +1,29 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+#root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-.wrapper {
+.card-wrapper {
+    width: 200px;
+    border: 1px solid black;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    /* width: 300px; */
 }
 
-.widget-card {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 20px;
+.card-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.weather {
-    border: 2px solid black;
-    padding: 20px;
-    margin: 20px;
-    display: none;
+.username {
+    font-size: 2em;
+}
+
+.description {
+    font-size: 1.1em;
 }
