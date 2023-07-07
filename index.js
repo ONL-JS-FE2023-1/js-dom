@@ -8,7 +8,7 @@
 
 + 1. Зробити верстку елементів, які отримують від користувача дані про місто
 + 2. Отримати дані з апі і обробити їх (підготувати дані до запиту на сервер)
-+3. Зробити картки з погодою та відобразити їх
++ 3. Зробити картки з погодою та відобразити їх
 
 */
 
@@ -25,6 +25,11 @@ function buttonClickHandler({target}) {
     // запобігання створенню карток для міста, для якого ми вже зробили картку
     if(CITIES.includes(selectValue) === false) {
         CITIES.push(selectValue);
+        requestAPI(selectValue);
+    }
+    if(CITIES.includes(selectValue) === true) {
+        const searchCity = document.querySelector(`#${selectValue}`);
+        searchCity.remove(); // need review
         requestAPI(selectValue);
     }
 }
@@ -63,6 +68,7 @@ function displayWeather(weatherData) {
     
     const article = document.createElement('article');
     article.classList.add('weather');
+    article.setAttribute('id', name);
 
     const city = document.createElement('p');
     city.append('City: ', name);
