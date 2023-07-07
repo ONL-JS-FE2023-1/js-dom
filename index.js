@@ -21,10 +21,10 @@ function createCard(user) {
     const imageWrapper = createImageWrapper(user);
 
     // 3 дія: створення h2
-    const h2 = createElement('h2', { classNames: ['username'] }, user.name);
+    const h2 = createElement('h2', { classNames: ['username'] }, `${user.name.title} ${user.name.first} ${user.name.last}`);
 
     // 4 дія: створення p
-    const p = createElement('p', { classNames: ['description'] }, user.description);
+    const p = createElement('p', { classNames: ['description'] }, `${user.location.country}, ${user.location.state}, ${user.location.city}`);
 
     // 5 дія: створення article, повертаємо створений article, чіпляємо до article img, h2, p
     return createElement('article', { classNames: ['card-wrapper'] }, imageWrapper, h2, p);
@@ -40,9 +40,9 @@ function createUserImage(user) {
     const img = document.createElement('img');
 
     // 2 дія: додаємо атрибути і класи до картинки
-    img.setAttribute('src', user.profilePicture);
-    img.setAttribute('alt', user.name);
-    img.dataset.id = user.id; // data-id
+    img.setAttribute('src', user.picture.large);
+    img.setAttribute('alt', `${user.name.title} ${user.name.first} ${user.name.last}`);
+    img.dataset.id = user.login.uuid; // data-id
     img.classList.add('card-image');
 
     // 3 дія: реєструємо обробники подій завантаження ресурсу
@@ -55,19 +55,29 @@ function createUserImage(user) {
 function createImageWrapper(user) {
     // 1 дія: створення обгортки для картинки. Обгортка - placeholder
     const imgWrapper = createElement('div', { classNames: ['image-wrapper'] });
-    imgWrapper.setAttribute('id', `wrapper${user.id}`);
-    imgWrapper.style.backgroundColor = stringToColor(user.name);
+    imgWrapper.setAttribute('id', `wrapper${user.login.uuid}`);
+    imgWrapper.style.backgroundColor = stringToColor(`${user.name.title} ${user.name.first} ${user.name.last}`);
     // 2 дія: створення картинки
     const img = createUserImage(user);
     return imgWrapper;
 }
 
-fetch('./data.json')
-    .then((response) => { return response.json() })
-    .then((data) => {
-        const cardArray = data.map((user) => createCard(user)); // 1
-        root.append(...cardArray); // 2
-    })
+const uploadBtn = document.querySelector('#upload-btn');
+uploadBtn.addEventListener('click', clickHandler);
+
+function clickHandler({target}) {
+    const userCount = target.nextElementSibling.value;
+
+    fetch(`https://randomuser.me/api/?results=${userCount}`)
+        .then((response) => { return response.json() })
+        .then((data) => {
+            const {results} = data;
+            console.log(results)
+            const cardArray = results.map((user) => createCard(user)); // 1
+            root.append(...cardArray); // 2
+        })
+}
+
 
 
 /*
