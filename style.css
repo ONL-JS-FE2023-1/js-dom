@@ -5,10 +5,8 @@
 }
 
 .wrapper {
-    width: 100vw;
-    height: 100vh;
-    background-color: bisque;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -17,4 +15,10 @@
     border: 2px solid black;
     border-radius: 5px;
     padding: 20px;
+}
+
+.weather {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
 }
